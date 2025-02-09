@@ -1,5 +1,0 @@
----
-triple:          'arm64-apple-darwin'
-binary-path:     '/Users/geoffrey/Desktop/cps222/HW2/power-digit-sum'
-relocations:     []
-...

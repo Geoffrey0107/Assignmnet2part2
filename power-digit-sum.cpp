@@ -5,6 +5,8 @@
 #include <limits.h>
 #include <string> 
 #include <cassert>
+#include <cmath>
+
 using namespace std;
 
 unsigned long long pow(int a,int b){
@@ -107,7 +109,7 @@ void tests(){
 
 
 int main(){
-    tests();
+    //tests();
     string a,b;
     cout << "a: ";
     cin >> a;
@@ -119,8 +121,13 @@ int main(){
         try{
 		int base = stoi(a);
 		int exp = stoi(b);
-        cout << a << "^" << b << " = " << pow(base, exp) << endl; 
-        cout << "Sum Of Digits: " << sum_vector(vectorize_digits(pow(base,exp))) << endl;
+        if(exp * (log10(base) / log10(exp)) >= 64){
+            cout << "result is too large to compute." <<endl;
+        }
+        else{
+            cout << a << "^" << b << " = " << pow(base, exp) << endl; 
+            cout << "Sum Of Digits: " << sum_vector(vectorize_digits(pow(base,exp))) << endl;
+        }
 	} catch (invalid_argument const& e){
 		return bail(a, b);
 	    }

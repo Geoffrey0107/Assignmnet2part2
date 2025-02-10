@@ -119,4 +119,15 @@ int main(){
         try{
 		int base = stoi(a);
 		int exp = stoi(b);
-        cou
+        cout << a << "^" << b << " = " << pow(base, exp) << endl; 
+        cout << "Sum Of Digits: " << sum_vector(vectorize_digits(pow(base,exp))) << endl;
+	} catch (invalid_argument const& e){
+		return bail(a, b);
+	    }
+    }
+    else{
+        return bail(a, b);
+    }
+    return 0;
+
+}
